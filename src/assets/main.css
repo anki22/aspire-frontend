@@ -1,0 +1,14 @@
+/* @import './base.css'; */
+
+
+body {
+  /* font-family: 'Open Sans'; */
+}
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
