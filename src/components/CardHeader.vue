@@ -12,6 +12,11 @@ const emit = defineEmits(['addDebitCard', 'addCompanyCard', 'updateSelectedCard'
 
 const tab = ref(1);
 
+const rules = {
+        required: value => !!value || 'Field is required',
+      };
+const form = ref(false);
+
 const createCardDialog = ref(false);
 const cancelCardDialog = ref(false);
 
@@ -49,7 +54,6 @@ function freezeUnfreezeCard(arg) {
 function removeCard(arg) {
   cancelCardDialog.value = true;
   cardIndexToCancel.value = arg;
-  // emit('removeCard', arg)
 }
 
 function removeCardConfirm() {
@@ -121,16 +125,23 @@ function onTabChange(model) {
         width="500"
       >
         <v-card>
-          <v-text-field
+          <v-form
+          v-model="form"
+          @submit.prevent="createCard"
+        >
+        <v-text-field
               label="Enter card name"
               placeholder="Enter card name"
               type="text"
               v-model="cardName"
+              :rules="[rules.required]"
             ></v-text-field>
           <v-card-actions>
             <v-btn color="primary" @click="closeDialog">Close Dialog</v-btn>
-            <v-btn color="primary"  @click="createCard">Create Card</v-btn>
+            <v-btn color="primary" type="submit" :disabled="!form">Create Card</v-btn>
           </v-card-actions>
+          </v-form>
+          
         </v-card>
       </v-dialog>
   </div>
