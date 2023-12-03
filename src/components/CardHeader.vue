@@ -172,7 +172,7 @@ header, .card-tabs {
   
 }
 header {
-  padding: 24px;
+  padding: 15px 24px;
 }
 .top-header {
   height: 56px;
