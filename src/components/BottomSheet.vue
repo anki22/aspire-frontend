@@ -282,6 +282,11 @@ const panels = ref(1)
       border-radius: 8px;
       .v-expansion-panel-title {
         border-radius: 8px;
+        background-color: #FAFCFF;
+        border-bottom: 1px solid #F5F5F5;
+        .v-expansion-panel-title__overlay {
+          display: none;
+        }
         .panel-title-left {
           display: flex;
           align-items: center;
